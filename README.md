@@ -4,7 +4,7 @@ Welcome to the "Will You Be My Valentine?" project, a playful and interactive wa
 
 ## Overview
 
-"Will You Be My Valentine?" is a web-based application that presents users with the question "Will you be my valentine?" followed by two options: "Yes" and "No". What makes this project special is the interactive and engaging way it handles responses, especially if someone tries to click "No".
+"Will You Be My Valentine?" is a web-based application that presents users with the question "Will you be my valentine?" followed by two options: "Yes" and "No". What makes this project special is the interactive and engaging way it handles responses, especially if someone tries to click "No". 
 
 ## Features
 
