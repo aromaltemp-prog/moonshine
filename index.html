@@ -16,17 +16,38 @@
     <img src="please.png" height="498px" width="150px" alt="cat asking question" class="responsive" />
 
     <script>
-      document
-        .getElementById("noButton")
-        .addEventListener("click", function () {
-          var yesButton = document.querySelector(
-            'button[onclick*="thankyou.html"]'
-          );
-          var currentFontSize = parseInt(
-            window.getComputedStyle(yesButton).fontSize
-          );
-          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
-        });
-    </script>
+    const noBtn = document.querySelector(".no-btn");
+    const yesBtn = document.querySelector(".yes-btn");
+    const mainImg = document.querySelector(".image"); // The GIF element
+
+    const messages = ["Sure?", "Really sure??", "Plsss :("];
+    const gifs = [
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BEob5S7ZCIpCo/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qUIm58683X4DS/giphy.gif",
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10tIjpzIu8fe0/giphy.gif"
+    ];
+    let msgIndex = 0;
+
+    noBtn.addEventListener("mouseover", () => {
+        // Move the button
+        const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+        noBtn.style.position = "absolute";
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        // Change text and GIF
+        if (msgIndex < messages.length) {
+            noBtn.innerHTML = messages[msgIndex];
+            mainImg.src = gifs[msgIndex];
+            msgIndex++;
+        }
+    });
+
+    yesBtn.addEventListener("click", () => {
+        window.location.href = "thankyou.html";
+    });
+</script>
+
   </body>
 </html>
