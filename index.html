@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/valentine.css" />
     <style>
     .responsive-gif {
-        width: 80%;          /* Takes up 80% of the screen width */
-        max-width: 300px;    /* But won't get huge on a PC */
-        height: auto;        /* Keeps the shape perfect */
+        width: 80%;
+        max-width: 300px;
+        height: 300px; /* Setting a fixed height stops the text from moving */
+        object-fit: contain; /* This keeps the GIF from looking stretched */
         display: block;
-        margin: 20px auto;   /* Centers it with some space */
-        border-radius: 15px; /* Optional: rounds the corners slightly */
+        margin: 20px auto;
+        border-radius: 15px;
     }
 
     #valentineQuestion {
