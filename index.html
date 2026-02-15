@@ -15,38 +15,43 @@
     <br />
     <img src="please.png" height="498px" width="150px" alt="cat asking question" class="responsive" />
 
-    <script>
-    const noBtn = document.querySelector(".no-btn");
-    const yesBtn = document.querySelector(".yes-btn");
-    const mainImg = document.querySelector(".image"); // The GIF element
+<script>
+    const noBtn = document.getElementById("noButton");
+    const yesBtn = document.querySelector("button[onclick*='thankyou.html']");
+    const mainImg = document.querySelector(".responsive"); // Targets your cat image
 
     const messages = ["Sure?", "Really sure??", "Plsss :("];
     const gifs = [
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BEob5S7ZCIpCo/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qUIm58683X4DS/giphy.gif",
-        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueW9ueCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10tIjpzIu8fe0/giphy.gif"
+        "http://googleusercontent.com/image_collection/image_retrieval/15309336242838973586_0",
+        "http://googleusercontent.com/image_collection/image_retrieval/8703971364135243873_1",
+        "http://googleusercontent.com/image_collection/image_retrieval/15576588532097927306_3"
     ];
     let msgIndex = 0;
 
-    noBtn.addEventListener("mouseover", () => {
-        // Move the button
+    // This function handles the "Running Away"
+    function moveButton() {
         const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
         const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-        noBtn.style.position = "absolute";
+        
+        noBtn.style.position = "fixed"; // Use fixed to ensure it jumps over everything
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
 
-        // Change text and GIF
+        // This changes the text and the GIF
         if (msgIndex < messages.length) {
             noBtn.innerHTML = messages[msgIndex];
             mainImg.src = gifs[msgIndex];
             msgIndex++;
         }
-    });
+        
+        // Optional: Keep the original "Yes" button growing feature
+        let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+        yesBtn.style.fontSize = (currentSize + 10) + "px";
+    }
 
-    yesBtn.addEventListener("click", () => {
-        window.location.href = "thankyou.html";
-    });
+    // Trigger the move on both hover and click
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("click", moveButton);
 </script>
 
   </body>
