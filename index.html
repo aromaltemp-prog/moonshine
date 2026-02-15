@@ -18,6 +18,17 @@
     #valentineQuestion {
         font-size: 1.5rem;   /* Makes the text easier to read on mobile */
         padding: 10px;
+          .answerButton {
+        padding: 15px 30px;
+        margin: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        background-color: #ff4d6d;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+         }
     }
     </style>
   </head>
@@ -31,9 +42,9 @@
     <br />
 
 <script>
-    const noBtn = document.getElementById("noButton");
+    const noBtn = document.getElementById('noButton');
     const yesBtn = document.querySelector("button[onclick*='thankyou.html']");
-    const mainImg = document.querySelector(".responsive-gif"); // Targets your cat image
+    const mainImg = document.querySelector(".responsive-gif");// Targets your cat image
 
     const messages = ["Sure?", "Really sure??", "Plsss :("];
     const gifs = [
