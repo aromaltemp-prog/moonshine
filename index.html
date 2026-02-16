@@ -19,17 +19,20 @@
     #valentineQuestion {
         font-size: 1.5rem;   /* Makes the text easier to read on mobile */
         padding: 10px;
-          .answerButton {
+              .answerButton {
+        display: block;      /* Makes it easier to center */
+        margin: 15px auto;   /* Automatically centers it horizontally */
         padding: 15px 30px;
-        margin: 10px;
         border-radius: 10px;
         font-weight: bold;
         background-color: #ff4d6d;
         color: white;
         border: none;
         cursor: pointer;
-        font-family: inherit;
-         }
+        width: fit-content;  /* Prevents it from stretching to full width */
+        max-width: 90%;      /* Ensures it stays within phone screen edges */
+        white-space: nowrap; /* Keeps the word "Yes" on one line */
+    }
     }
     </style>
   </head>
