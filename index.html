@@ -81,8 +81,8 @@ if (msgIndex < messages.length) {
         currentGif = "4th.png";   // Stays on 4th for all later messages
     }
     
-    mainImg.src = currentGif;
-    msgIndex++;
+    mainImg.src = currentGif + "?v=" + new Date().getTime(); 
+msgIndex++;
 }
         
         // Optional: Keep the original "Yes" button growing feature
