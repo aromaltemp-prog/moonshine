@@ -37,7 +37,7 @@
     </style>
   </head>
   <body>
-    <img src="please.png" alt="4th.png" class="responsive-gif" />
+    <img src="please.png" alt="" class="responsive-gif" />
     <div id="valentineQuestion"><b>Will you be my valentine?</b></div>
     <button class="answerButton" onclick="location.href='thankyou.html'">
       Yes
@@ -68,11 +68,13 @@
         noBtn.style.top = y + "px";
 
         // This changes the text and the GIF
-        if (msgIndex < messages.length) {
-            noBtn.innerHTML = messages[msgIndex];
-            mainImg.src = gifs[msgIndex];
-            msgIndex++;
-        }
+if (msgIndex < messages.length) {
+    noBtn.innerHTML = messages[msgIndex];
+    // This part makes sure it stays on 4th.png once it reaches it
+    const gifIndex = Math.min(msgIndex, gifs.length - 1);
+    mainImg.src = gifs[gifIndex];
+    msgIndex++;
+}
         
         // Optional: Keep the original "Yes" button growing feature
         let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
