@@ -70,9 +70,18 @@
         // This changes the text and the GIF
 if (msgIndex < messages.length) {
     noBtn.innerHTML = messages[msgIndex];
-    // This part makes sure it stays on 4th.png once it reaches it
-    const gifIndex = Math.min(msgIndex, gifs.length - 1);
-    mainImg.src = gifs[gifIndex];
+    
+    // Choose the GIF based on the message index
+    let currentGif;
+    if (msgIndex === 0) {
+        currentGif = "2nd.png";
+    } else if (msgIndex === 1) {
+        currentGif = "third.png"; 
+    } else {
+        currentGif = "4th.png";   // Stays on 4th for all later messages
+    }
+    
+    mainImg.src = currentGif;
     msgIndex++;
 }
         
