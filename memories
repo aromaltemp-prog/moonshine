@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/lastpage.css">
+    <style>
+        body { background-color: #fdf6e3; font-family: 'Courier New', Courier, monospace; color: #ff4d6d; text-align: center; padding: 20px; }
+        .spotify-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .album-art { width: 100%; border-radius: 10px; }
+        .letter-text { line-height: 1.6; text-align: left; padding: 10px; font-size: 1.1rem; }
+        .photo-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+        .photo-collage img { width: 100%; border: 5px solid white; transform: rotate(-3deg); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .photo-collage img:nth-child(even) { transform: rotate(3deg); }
+        .next-btn { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 25px; margin-top: 30px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="spotify-card">
+        <img src="your-couple-photo.jpg" class="album-art" alt="Our Song">
+        <h2>Electric Love</h2>
+        <p>BØRNS</p>
+    </div>
+
+    <div class="letter-text">
+        <h3>Do you remember our first kiss?</h3>
+        <p>You played this song that night... it makes me so happy every time I think about it. [Your personal message here]</p>
+    </div>
+
+    <div class="photo-collage">
+        <img src="pic1.jpg" alt="Memory 1">
+        <img src="pic2.jpg" alt="Memory 2">
+    </div>
+
+    <button class="next-btn" onclick="location.href='date.html'">Okay, let's plan our date! ❤️</button>
+</body>
+</html>
+
