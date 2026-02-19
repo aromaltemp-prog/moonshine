@@ -1,37 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/lastpage.css">
     <style>
-        body { background-color: #fdf6e3; font-family: 'Courier New', Courier, monospace; color: #ff4d6d; text-align: center; padding: 20px; }
-        .spotify-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .album-art { width: 100%; border-radius: 10px; }
-        .letter-text { line-height: 1.6; text-align: left; padding: 10px; font-size: 1.1rem; }
-        .photo-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-        .photo-collage img { width: 100%; border: 5px solid white; transform: rotate(-3deg); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-        .photo-collage img:nth-child(even) { transform: rotate(3deg); }
-        .next-btn { background: #ff4d6d; color: white; border: none; padding: 15px 30px; border-radius: 25px; margin-top: 30px; font-weight: bold; }
+        body { background-color: #fdf6e3; font-family: 'Courier New', Courier, monospace; color: #ff4d6d; text-align: center; padding: 20px; margin: 0; }
+        
+        /* Spotify Card Style */
+        .spotify-card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 320px; margin: 20px auto; }
+        .album-art { width: 100%; aspect-ratio: 1/1; border-radius: 10px; object-fit: cover; margin-bottom: 15px; }
+        .track-info { text-align: left; margin-bottom: 15px; }
+        .track-name { font-size: 1.4rem; font-weight: bold; margin: 0; }
+        .artist-name { font-size: 1rem; color: #777; margin: 5px 0 0 0; }
+        
+        /* Custom Controls */
+        .controls { display: flex; align-items: center; justify-content: center; gap: 20px; }
+        .play-btn { background: #ff4d6d; border: none; width: 50px; height: 50px; border-radius: 50%; color: white; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        
+        /* Letter & Collage */
+        .letter-text { line-height: 1.6; text-align: left; padding: 20px; font-size: 1.1rem; max-width: 350px; margin: 0 auto; }
+        .full-collage { width: 100%; max-width: 400px; border: 8px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 20px auto; }
+        .next-btn { background: #ff4d6d; color: white; border: none; padding: 15px 40px; border-radius: 30px; margin: 30px 0; font-weight: bold; font-size: 1rem; }
     </style>
 </head>
 <body>
+
     <div class="spotify-card">
-        <img src="your-couple-photo.jpg" class="album-art" alt="Our Song">
-        <h2>Electric Love</h2>
-        <p>BØRNS</p>
+        <img src="song-cover.png" class="album-art" alt="Our Song">
+        <div class="track-info">
+            <p class="track-name">Electric Love</p>
+            <p class="artist-name">BØRNS</p>
+        </div>
+        <div class="controls">
+            <button class="play-btn" id="playPauseBtn">▶</button>
+        </div>
+        <audio id="myAudio" src="electric-love.mp3" loop></audio>
     </div>
 
     <div class="letter-text">
-        <h3>Do you remember our first kiss?</h3>
-        <p>You played this song that night... it makes me so happy every time I think about it. [Your personal message here]</p>
+        <h3 style="text-align: center;">A little note for you...</h3>
+        <p>Do you remember our first kiss? You played this song that night... it makes me so happy every time I think about it. I'm so lucky to have you. [Your personal message here]</p>
     </div>
 
-    <div class="photo-collage">
-        <img src="pic1.jpg" alt="Memory 1">
-        <img src="pic2.jpg" alt="Memory 2">
-    </div>
+    <img src="collage.png" class="full-collage" alt="Our Memories">
 
-    <button class="next-btn" onclick="location.href='date.html'">Okay, let's plan our date! ❤️</button>
+    <button class="next-btn" onclick="location.href='date.html'">Plan our date! ❤️</button>
+
+    <script>
+        const audio = document.getElementById('myAudio');
+        const btn = document.getElementById('playPauseBtn');
+
+        btn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = "⏸";
+            } else {
+                audio.pause();
+                btn.innerHTML = "▶";
+            }
+        });
+    </script>
 </body>
 </html>
-
