@@ -406,23 +406,9 @@
 </section>
 
     <audio id="bg-music" src="./co2.mp3" loop autoplay preload="auto"></audio>
-
+    
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const music = document.getElementById('bg-music');
-            
-            // Attempt standard autoplay
-            const playPromise = music.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    // Fallback: Play music on the very first click anywhere on the page if browser blocks it
-                    document.addEventListener('click', () => {
-                        music.play();
-                    }, { once: true });
-                });
-            }
-        });
+        ... (the code from above goes here) ...
     </script>
 </body>
 </html>
