@@ -407,8 +407,32 @@
 
     <audio id="bg-music" src="./co2.mp3" loop autoplay preload="auto"></audio>
     
-    <script>
-        ... (the code from above goes here) ...
+   <script>
+        const music = document.getElementById('bg-music');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Check if there's a saved timestamp from a previous page
+            const savedTime = localStorage.getItem('musicCurrentTime');
+            if (savedTime) {
+                music.currentTime = parseFloat(savedTime);
+            }
+
+            // Attempt standard autoplay
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Fallback: If browser blocks it, play on the first click anywhere
+                    document.addEventListener('click', () => {
+                        music.play();
+                    }, { once: true });
+                });
+            }
+        });
+
+        // CRITICAL: Save the exact second of the song right before switching pages
+        document.querySelector('.goodbye-btn').addEventListener('click', () => {
+            localStorage.setItem('musicCurrentTime', music.currentTime);
+        });
     </script>
 </body>
 </html>
